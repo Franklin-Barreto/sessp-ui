@@ -1,0 +1,3 @@
+<p-dropdown [options]="uos" (onChange)="getUds($event.value.uds)" [(ngModel)]="uoSelecionada" placeholder="Selecione uma opção" [style]="{'width':'auto'}" ></p-dropdown>
+<p-dropdown [options]="uds" (onChange)="getUas($event.value.uas)" [(ngModel)]="udSelecionada" placeholder="Selecione uma opção" [style]="{'width':'auto'}" ></p-dropdown>
+<p-dropdown [options]="uas"  [(ngModel)]="uaSelecionada" placeholder="Selecione uma opção" [style]="{'width':'auto'}" ></p-dropdown>

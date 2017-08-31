@@ -1,0 +1,11 @@
+<div class="ui-g">
+  <div class="ui-g-4">Fatores:</div>
+  <div class="ui-g-5">Indicadores / comportamentos observados:</div>
+  <div class="ui-g-3">Pontuação:</div>
+</div>
+<div class="ui-g"  *ngFor="let fator of formulario?.fatores">
+  <div class="ui-g-4 fatores">
+    {{fator?.titulo}}
+  </div>
+  <div class="ui-g-5 questoes" *ngFor="let questao of fator?.questoes">{{questao.descricao}}</div>
+</div>
