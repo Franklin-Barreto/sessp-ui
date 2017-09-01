@@ -1,11 +1,26 @@
-<div class="ui-g">
-  <div class="ui-g-4">Fatores:</div>
-  <div class="ui-g-5">Indicadores / comportamentos observados:</div>
-  <div class="ui-g-3">Pontuação:</div>
-</div>
-<div class="ui-g"  *ngFor="let fator of formulario?.fatores">
-  <div class="ui-g-4 fatores">
-    {{fator?.titulo}}
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-3">Fatores:</div>
+    <div class="ui-g-9">
+      <div class="ui-g">
+        <div class="ui-g-6">Indicadores / comportamentos observados:</div>
+        <div class="ui-g-3">Pontuação:</div>
+      </div>
+    </div>
   </div>
-  <div class="ui-g-5 questoes" *ngFor="let questao of fator?.questoes">{{questao.descricao}}</div>
+  <div class="ui-g" *ngFor="let fator of formulario.fatores">
+    <div class="ui-g-3">{{fator.titulo}}</div>
+    <div class="ui-g-9 ui-g-nopad">
+      <div class="ui-g" *ngFor="let questao of fator.questoes">
+        <div class="ui-g-6">{{questao.descricao}}</div>
+      <div class="ui g-3"  *ngFor="let parametro of formulario.parametros">
+        <div class="ui-g">
+          <div class="ui-g-3">
+            <p-radioButton label="{{parametro.valor}}" value="{{parametro.valor}}"></p-radioButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
