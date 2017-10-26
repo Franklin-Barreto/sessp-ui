@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BaseService} from "../../utils/base.service";
-import {Observable} from "rxjs";
+import {Observable} from "rxjs/Observable";
 import {Formulario} from "./formulario";
 
 @Injectable()

@@ -1,0 +1,14 @@
+<div class="panel-group" id="accordion">
+  <div id="itens" class="panel panel-default" *ngFor="let menu of menus">
+    <div class="panel-heading">
+      <a class="painel-title" data-toggle="collapse" data-parent="#accordion"
+         href="#collapse{{menu.codigo}}">{{menu.titulo}}</a>
+    </div>
+    <div id="collapse{{menu.codigo}}" class="panel-collapse collapse">
+      <div class="panel-body" style="padding:8px;" *ngFor="let subMenu of menu.subMenus">
+        <a routerLink="/{{subMenu.url}}" class="collapse1">{{subMenu.titulo}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+

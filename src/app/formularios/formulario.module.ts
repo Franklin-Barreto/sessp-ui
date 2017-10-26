@@ -4,6 +4,7 @@ import {FormularioService, FormularioComponent} from "./formulario/index";
 import {ReactiveFormsModule} from "@angular/forms";
 import {DataTableModule} from "primeng/components/datatable/datatable";
 import {RadioButtonModule} from "primeng/components/radiobutton/radiobutton";
+import { FormBuscaComponent } from './form-busca/form-busca.component';
 
 
 @NgModule({
@@ -13,8 +14,8 @@ import {RadioButtonModule} from "primeng/components/radiobutton/radiobutton";
     DataTableModule,
     RadioButtonModule
   ],
-  declarations: [FormularioComponent],
-  exports:[FormularioComponent],
+  declarations: [FormularioComponent, FormBuscaComponent],
+  exports:[FormularioComponent,FormBuscaComponent],
   providers: [FormularioService]
 })
 export class FormularioModule {

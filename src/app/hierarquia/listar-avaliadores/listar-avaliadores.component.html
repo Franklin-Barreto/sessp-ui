@@ -1,0 +1,12 @@
+<p-dataTable [value]="avaliadores">
+  <p-column field="nome" header="Nome"></p-column>
+  <p-column field="rsCodigo" header="RS"></p-column>
+  <p-column field="pvCodigo" header="PV"></p-column>
+  <p-column field="exCodigo" header="EX"></p-column>
+  <p-column header="Detalhar">
+    <ng-template let-avaliador="rowData" pTemplate="body">
+      <button class="btn btn-default" (click)="detalharAvaliador(avaliador)"><i class="fa fa-pencil"
+                                                                               aria-hidden="true"></i></button>
+    </ng-template>
+  </p-column>
+</p-dataTable>

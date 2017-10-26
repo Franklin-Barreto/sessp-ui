@@ -8,7 +8,7 @@
       </div>
     </div>
   </div>
-  <div class="ui-g" *ngFor="let fator of formulario.fatores">
+  <div class="ui-g" *ngFor="let fator of formulario?.fatores">
     <div class="ui-g-3">{{fator.titulo}}</div>
     <div class="ui-g-9 ui-g-nopad">
       <div class="ui-g" *ngFor="let questao of fator.questoes">
@@ -16,7 +16,7 @@
       <div class="ui g-3"  *ngFor="let parametro of formulario.parametros">
         <div class="ui-g">
           <div class="ui-g-3">
-            <p-radioButton label="{{parametro.valor}}" value="{{parametro.valor}}"></p-radioButton>
+            <p-radioButton name="{{questao.codigo}}" label="{{parametro.valor}}" value="{{parametro.valor}}"></p-radioButton>
           </div>
         </div>
       </div>
