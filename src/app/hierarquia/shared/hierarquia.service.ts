@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
@@ -13,7 +13,7 @@ export class HierarquiaService extends BaseService {
 
   avaliadores: Array<Avaliador> = new Array();
   avaliados: Array<Avaliado> = new Array();
-  avaliador: any;
+  static compartilharAvaliador = new EventEmitter<Avaliador>();
 
 
   getAvaliadores(): Observable<Array<Avaliador>> {

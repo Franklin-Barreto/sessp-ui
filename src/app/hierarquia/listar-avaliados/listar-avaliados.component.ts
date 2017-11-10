@@ -10,7 +10,9 @@ export class ListarAvaliadosComponent implements OnInit {
 
   @Input() avaliados: Array<Avaliado> = new Array();
 
-  constructor() { }
+  constructor() {
+    console.log("construtor"+this.avaliados)
+  }
 
   ngOnInit() {
   }

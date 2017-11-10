@@ -26,5 +26,4 @@ export class ListarServidorComponent {
     console.log(JSON.stringify(servidor));
   }
 
-
 }
