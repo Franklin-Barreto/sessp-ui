@@ -1,14 +1,13 @@
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
-
-import {AppComponent} from './app.component';
+import {AppComponent} from "./app.component";
 import {UnidadesModule} from "./unidades/unidades.module";
-import {FormularioModule} from './formularios/formulario.module';
-import {MenuComponent} from './menu/menu.component';
-import {EfetuarAvaliacaoComponent} from './avaliacao/efetuar-avaliacao.component';
-import {ServidorModule} from "./servidor/servidor.module";
+import {FormularioModule} from "./formularios/formulario.module";
+import {MenuComponent} from "./menu/menu.component";
+import {EfetuarAvaliacaoComponent} from "./avaliacao/efetuar-avaliacao.component";
 import {HierarquiaModule} from "./hierarquia/hierarquia.module";
 import {FormsModule} from "@angular/forms";
 
@@ -30,7 +29,7 @@ const appRoutes: Routes = [
     UnidadesModule,
     FormsModule,
     FormularioModule,
-    //ServidorModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     HierarquiaModule
   ],

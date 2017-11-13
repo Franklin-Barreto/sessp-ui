@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
+import {HttpClient} from '@angular/common/http';
 
 
 @Injectable()
@@ -7,7 +7,7 @@ export class BaseService {
 
   private url = 'http://localhost:9000/';
 
-  constructor(protected http: Http) {
+  constructor(protected http: HttpClient) {
   }
 
   getUrl(): string {

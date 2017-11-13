@@ -9,7 +9,7 @@ export class MenuService extends BaseService {
 
   getMenu(): Observable<Array<Menu>> {
     return this.httpGet("menu").map(resp => {
-      return resp.json()
+      return resp
     })
   }
 

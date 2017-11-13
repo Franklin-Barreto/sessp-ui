@@ -17,9 +17,9 @@ export class HierarquiaService extends BaseService {
 
 
   getAvaliadores(): Observable<Array<Avaliador>> {
-    return this.httpGet("hierarquia/avaliador").map(resp => {
-      // console.log(resp.json())
-      resp.json().forEach(avaliador => {
+    return this.httpGet<Observable<Avaliador>>("hierarquia/avaliador").map(resp => {
+
+      resp.forEach(avaliador => {
         avaliador.avaliados.forEach(avaliado => {
           this.avaliados.push(new Avaliado(avaliado.nome, avaliado.usuarioId.rsCodigo, avaliado.usuarioId.pvCodigo, avaliado.usuarioId.exCodigo));
         })
