@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {HttpParams} from "@angular/common/http";
 
 
 @Injectable()
@@ -14,8 +15,8 @@ export class BaseService {
     return this.url;
   }
 
-  httpGet(url: string) {
-    return this.http.get(this.url + url);
-  }
+  httpGet(url: string, parametros?) {
 
+    return this.http.get(this.url + url, {params: new HttpParams({fromString: parametros})});
+  }
 }

@@ -8,15 +8,12 @@ import {ServidorService, Servidor} from "../../servidor"
 @Injectable()
 export class FormularioService extends BaseService {
 
-  constructor(private servidorService: ServidorService) {
-    super(this.http);
-  }
 
 
   getFormularioPorCodigo(codigo: number): Observable<Formulario> {
     return this.httpGet("formulario/" + codigo)
       .map(resp => {
-        return resp.json();
+        return resp;
       })
   }
 }

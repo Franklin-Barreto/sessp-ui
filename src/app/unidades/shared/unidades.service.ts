@@ -13,7 +13,7 @@ export class UnidadesService extends BaseService {
   getUos(): Observable<Array<UnidadeOrcamentaria>> {
 
     return this.httpGet("unidades/uos").map(resp => {
-      return resp.json()
+      return resp
 
     }).catch((error) => {
       return Observable.throw('Erro' + error);

@@ -13,8 +13,6 @@ export class HierarquiaService extends BaseService {
 
   avaliadores: Array<Avaliador> = new Array();
   avaliados: Array<Avaliado> = new Array();
-  static compartilharAvaliador = new EventEmitter<Avaliador>();
-
 
   getAvaliadores(): Observable<Array<Avaliador>> {
     return this.httpGet<Observable<Avaliador>>("hierarquia/avaliador").map(resp => {

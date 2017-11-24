@@ -1,4 +1,4 @@
-<p-dataTable [value]="servidores">
+<p-dataTable [value]="servidores" [lazy]="true" [rows]="linhas" [paginator]="true" [totalRecords]="totalRegistros" (onLazyLoad)="loadServidoresLazy($event)">
   <p-column field="nome" header="Nome"></p-column>
   <p-column field="rsCodigo" header="RS"></p-column>
   <p-column field="pvCodigo" header="PV"></p-column>

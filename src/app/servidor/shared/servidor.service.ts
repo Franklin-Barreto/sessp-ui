@@ -1,37 +1,57 @@
 import {Injectable} from '@angular/core';
-import {HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch'
 
 import {BaseService} from "../../utils/base.service";
 import {Servidor} from "./servidor";
+import {ServidorFilter} from "./servidorFilter";
 
 @Injectable()
 export class ServidorService extends BaseService {
 
-  private servidores: Array<Servidor> = new Array();
+  private servidores: Array<Servidor>;
 
-  getServidores(servidor:Servidor): Observable<Array<Servidor>> {
+  getServidores(filtro: ServidorFilter): Observable<Array<Servidor>> {
 
-    //const params = new HttpParams();
+    let parametros = 'size='+filtro.size+'&page='+filtro.page;
 
+    if (filtro.rsCodigo) {
+      parametros += "&rsCodigo=" + filtro.rsCodigo;
+    }
 
-    return this.httpGet<Observable<Servidor>>("servidor").map(
+    if (filtro.nome) {
+      parametros += "&nome=" + filtro.nome;
+    }
+
+    if (filtro.cpf) {
+      parametros += "&cpf=" + filtro.cpf;
+    }
+
+    if (filtro.uaCodigo) {
+      parametros += "&uaCodigo=" + filtro.uaCodigo;
+    }
+
+    return this.httpGet<Observable<any>>("servidor/filtrar", parametros).map(
       resp => {
-        resp.forEach(servidor => {
-          servidor.infoServidor.forEach(info => {
-            let unidade: any = info.unidade != null ? info.unidade : '';
-            this.servidores.push(new Servidor(servidor.nome, servidor.cpf, servidor.rsCodigo, info.pvCodigo,
-              info.exCodigo, unidade.uoCodigo, unidade.uoDescricao, unidade.udCodigo, unidade.udDescricao,
-              unidade.uaCodigo, unidade.uaDescricao, info.cargo))
-          })
+        this.servidores = new Array();
+        resp.content.forEach(servidor => {
+
+          let unidade: any = servidor.infoServidor.unidade != null ? servidor.infoServidor.unidade : '';
+          this.servidores.push(new Servidor(servidor.nome, servidor.cpf, servidor._id, servidor.infoServidor.pvCodigo,
+            servidor.infoServidor.exCodigo, unidade.uoCodigo, unidade.uoDescricao, unidade.udCodigo, unidade.udDescricao,
+            unidade.uaCodigo, unidade.uaDescricao, servidor.infoServidor.cargo))
+
         })
-        return this.servidores;
+        let resultado = {
+          servidores:this.servidores,
+          total:resp.totalElements
+        }
+
+        return resultado;
       }
     ).catch((error) => {
       return Observable.throw('Erro' + error);
     })
   }
-
 }

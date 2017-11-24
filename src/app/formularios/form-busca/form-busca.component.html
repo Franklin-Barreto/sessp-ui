@@ -1,5 +1,6 @@
 <div class="container">
-  <form class="form-horizontal">
+
+  <form #pesquisar="ngForm" (ngSubmit)="filtrar()" class="form-horizontal">
     <div class="form-group">
       <label class="col-md-1 control-label">Ua:</label>
       <div class="col-md-5">
@@ -7,23 +8,26 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="" class="col-md-1 control-label">RS:</label>
+      <label for="rs" class="col-md-1 control-label">RS:</label>
       <div class="col-md-2">
-        <input type="text" class="form-control">
+        <input type="text" name="rsCodigo" [(ngModel)]="servidorFilter.rsCodigo" id="rs" class="form-control">
       </div>
     </div>
     <div class="form-group">
       <label for="nome" class="col-md-1 control-label">Nome: </label>
       <div class="col-md-5">
-        <input type="text" name="nome" value="" id="nome" size="40" maxlength="40" class="form-control">
+        <input type="text" name="nome" value="" id="nome" [(ngModel)]=servidorFilter.nome size="40" maxlength="40"
+               class="form-control">
       </div>
     </div>
     <div class="form-group">
       <label for="cpf" class="col-md-1 control-label">CPF: </label>
       <div class="col-md-3">
-        <input type="text" name="cpf" value="" id="cpf" size="11" maxlenght="11" class="form-control">
+        <input type="text" name="cpf" [(ngModel)]=servidorFilter.cpf id="cpf" size="11" maxlenght="11"
+               class="form-control">
       </div>
     </div>
-    <input type="submit" name="pesquisar" value="Pesquisar" id="pesquisar" class="btn btn-default">
+    <button type="submit" id="pesquisar" class="btn btn-default">Pesquisar</button>
   </form>
+  <app-listar-servidor [servidores]="servidores" (pagina)="mudarPagina($event)" [linhas]="servidorFilter.size" [totalRegistros]="totaRegistros"></app-listar-servidor>
 </div>

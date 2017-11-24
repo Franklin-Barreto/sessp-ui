@@ -11,6 +11,7 @@ import {EfetuarAvaliacaoComponent} from "./avaliacao/efetuar-avaliacao.component
 import {HierarquiaModule} from "./hierarquia/hierarquia.module";
 import {FormsModule} from "@angular/forms";
 
+
 const appRoutes: Routes = [
   {path: "avaliacao/efetuar", component: EfetuarAvaliacaoComponent}
 
