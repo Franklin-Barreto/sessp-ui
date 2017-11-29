@@ -10,6 +10,8 @@ import {MenuComponent} from "./menu/menu.component";
 import {EfetuarAvaliacaoComponent} from "./avaliacao/efetuar-avaliacao.component";
 import {HierarquiaModule} from "./hierarquia/hierarquia.module";
 import {FormsModule} from "@angular/forms";
+import {SegurancaModule} from './seguranca'
+
 
 
 const appRoutes: Routes = [
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MenuComponent,
-    EfetuarAvaliacaoComponent,
+    EfetuarAvaliacaoComponent
+
 
   ],
   imports: [
@@ -32,7 +35,8 @@ const appRoutes: Routes = [
     FormularioModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    HierarquiaModule
+    HierarquiaModule,
+    SegurancaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
