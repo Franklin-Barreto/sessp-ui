@@ -9,6 +9,6 @@ export class AppComponent {
   title = 'app';
 
   constructor() {
-
+    //localStorage.setItem("token",null);
   }
 }
